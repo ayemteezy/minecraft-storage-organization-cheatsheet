@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minecraft Item Organisation Cheat Sheet (1.21)</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background: #2c3e50;
+        padding: 10px;
+        font-size: 10px;
+      }
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        background: white;
+        padding: 15px;
+        border-radius: 5px;
+      }
+      h1 {
+        text-align: center;
+        color: #000;
+        margin-bottom: 15px;
+        font-size: 16px;
+        font-weight: 700;
+      }
+      th,
+      td {
+        border: 1px solid #000;
+        padding: 4px 6px;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        background: #fff;
+        color: #000;
+        font-weight: 700;
+        font-size: 10px;
+      }
+      .cat {
+        font-weight: 700;
+        width: 12%;
+      }
+      .sub {
+        width: 20%;
+        font-size: 9px;
+      }
+      .further {
+        width: 53%;
+        font-size: 9px;
+        line-height: 1.3;
+      }
+      .ch,
+      .sh {
+        text-align: center;
+        font-weight: 600;
+        width: 7.5%;
+      }
+
+      .combat {
+        background-color: #b3e5fc;
+      }
+      .tools {
+        background-color: #ffe0b2;
+      }
+      .colorful {
+        background-color: #f8bbd0;
+      }
+      .wood {
+        background-color: #d7ccc8;
+      }
+      .blocks {
+        background-color: #e0e0e0;
+      }
+      .mob-drops {
+        background-color: #c5e1a5;
+      }
+      .potion {
+        background-color: #ffcdd2;
+      }
+      .minerals {
+        background-color: #fff9c4;
+      }
+      .farming {
+        background-color: #ffe082;
+      }
+      .misc {
+        background-color: #b3e5fc;
+      }
+      .food {
+        background-color: #fff59d;
+      }
+      .ocean {
+        background-color: #b2ebf2;
+      }
+      .mechanisms {
+        background-color: #ffab91;
+      }
+      .enchanting {
+        background-color: #e1bee7;
+      }
+      .end {
+        background-color: #fff9c4;
+      }
+      .nether {
+        background-color: #f8bbd0;
+      }
+      .natural {
+        background-color: #c5e1a5;
+      }
+      .building {
+        background-color: #dcedc8;
+      }
+      .decoration {
+        background-color: #dcedc8;
+      }
+      .rail {
+        background-color: #ffecb3;
+      }
+      .new {
+        color: #d32f2f;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>MINECRAFT ITEM ORGANISATION CHEAT SHEET (1.21)</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Subcategory</th>
+            <th>Further Subcategory</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="combat">
+            <td class="cat" rowspan="6">Combat</td>
+            <td class="sub">Swords</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="combat">
+            <td class="sub">Bows, Crossbows</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="combat">
+            <td class="sub">Trident<br /><span class="new">Mace</span></td>
+            <td class="further"></td>
+          </tr>
+          <tr class="combat">
+            <td class="sub">Armor</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="combat">
+            <td class="sub">Arrows</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="combat">
+            <td class="sub">Shield</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="tools">
+            <td class="cat" rowspan="15">Tools</td>
+            <td class="sub">Pickaxe</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="tools">
+            <td class="sub">Axe</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="tools">
+            <td class="sub">Shovel</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="tools">
+            <td class="sub">Hoe</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="tools">
+            <td class="sub">Shears</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="tools">
+            <td class="sub">Fishing Rod</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="tools">
+            <td class="sub">Saddle</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="tools">
+            <td class="sub">Buckets</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="tools">
+            <td class="sub">Flint & Steel</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="tools">
+            <td class="sub">Brush</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="tools">
+            <td class="sub">Spyglass</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="tools">
+            <td class="sub">Lead</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="tools">
+            <td class="sub">Name Tags</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="tools">
+            <td class="sub">Compass</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="tools">
+            <td class="sub">Clock</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="colorful">
+            <td class="cat" rowspan="9">Colorful</td>
+            <td class="sub">Wool</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="colorful">
+            <td class="sub">Dyes</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="colorful">
+            <td class="sub">Banners</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="colorful">
+            <td class="sub">Concrete</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="colorful">
+            <td class="sub">Terracotta, Glazed Terracotta</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="colorful">
+            <td class="sub">Glass Blocks, Glass Panes</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="colorful">
+            <td class="sub">Beds</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="colorful">
+            <td class="sub">Carpets</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="colorful">
+            <td class="sub">Candles</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="wood">
+            <td class="cat" rowspan="11">Wood</td>
+            <td class="sub">Oak</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="wood">
+            <td class="sub">Jungle</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="wood">
+            <td class="sub">Dark Oak</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="wood">
+            <td class="sub">Acacia</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="wood">
+            <td class="sub">Birch</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="wood">
+            <td class="sub">Spruce</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="wood">
+            <td class="sub">Mangrove</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="wood">
+            <td class="sub">Cherry</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="wood">
+            <td class="sub"><span class="new">Bamboo</span></td>
+            <td class="further"></td>
+          </tr>
+          <tr class="wood">
+            <td class="sub"><span class="new">Pale Oak</span></td>
+            <td class="further"></td>
+          </tr>
+          <tr class="wood">
+            <td class="sub">Sticks</td>
+            <td class="further"></td>
+          </tr>
+
+          <tr class="blocks">
+            <td class="cat" rowspan="21">Ground</td>
+            <td class="sub">Cobblestone</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="blocks">
+            <td class="sub">Stone</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="blocks">
+            <td class="sub">Cobbled Deepslate</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="blocks">
+            <td class="sub">Deepslate</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="blocks">
+            <td class="sub">Smooth Stone</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="blocks">
+            <td class="sub">Andesite</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="blocks">
+            <td class="sub">Diorite</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="blocks">
+            <td class="sub">Granite</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="blocks">
+            <td class="sub">Gravel</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="blocks">
+            <td class="sub">Flint</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="blocks">
+            <td class="sub">Dirt</td>
+            <td class="further">Dirt, Coarse Dirt, Rooted Dirt</td>
+          </tr>
+          <tr class="blocks">
+            <td class="sub">Grass Blocks</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="blocks">
+            <td class="sub">Podzol, Mycelium</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="blocks">
+            <td class="sub">Sand, Red Sand</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="blocks">
+            <td class="sub">Clay, Clay Blocks</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="blocks">
+            <td class="sub">Snow, Snow Balls</td>
+            <td class="further">Snow Blocks, Snow Layers</td>
+          </tr>
+          <tr class="blocks">
+            <td class="sub"><span class="new">Tuff</span></td>
+            <td class="further"></td>
+          </tr>
+          <tr class="blocks">
+            <td class="sub">Sandstone</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="blocks">
+            <td class="sub">Calcite</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="blocks">
+            <td class="sub">Dripstone Block</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="blocks">
+            <td class="sub">Mud/Packed Mud</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="building">
+            <td class="cat" rowspan="27">Building Blocks</td>
+            <td class="sub">Oak</td>
+            <td class="further">
+              Planks, Stairs, Slabs, Fences, Fence Gates, Doors, Trapdoors,
+              Pressure Plates, Buttons, Signs, Boats
+            </td>
+          </tr>
+          <tr class="building">
+            <td class="sub">Spruce</td>
+            <td class="further">
+              Planks, Stairs, Slabs, Fences, Fence Gates, Doors, Trapdoors,
+              Pressure Plates, Buttons, Signs, Boats
+            </td>
+          </tr>
+          <tr class="building">
+            <td class="sub">Birch</td>
+            <td class="further">
+              Planks, Stairs, Slabs, Fences, Fence Gates, Doors, Trapdoors,
+              Pressure Plates, Buttons, Signs, Boats
+            </td>
+          </tr>
+          <tr class="building">
+            <td class="sub">Jungle</td>
+            <td class="further">
+              Planks, Stairs, Slabs, Fences, Fence Gates, Doors, Trapdoors,
+              Pressure Plates, Buttons, Signs, Boats
+            </td>
+          </tr>
+          <tr class="building">
+            <td class="sub">Acacia</td>
+            <td class="further">
+              Planks, Stairs, Slabs, Fences, Fence Gates, Doors, Trapdoors,
+              Pressure Plates, Buttons, Signs, Boats
+            </td>
+          </tr>
+          <tr class="building">
+            <td class="sub">Dark Oak</td>
+            <td class="further">
+              Planks, Stairs, Slabs, Fences, Fence Gates, Doors, Trapdoors,
+              Pressure Plates, Buttons, Signs, Boats
+            </td>
+          </tr>
+          <tr class="building">
+            <td class="sub">Mangrove</td>
+            <td class="further">
+              Planks, Stairs, Slabs, Fences, Fence Gates, Doors, Trapdoors,
+              Pressure Plates, Buttons, Signs, Boats
+            </td>
+          </tr>
+          <tr class="building">
+            <td class="sub">Cherry</td>
+            <td class="further">
+              Planks, Stairs, Slabs, Fences, Fence Gates, Doors, Trapdoors,
+              Pressure Plates, Buttons, Signs, Boats
+            </td>
+          </tr>
+          <tr class="building">
+            <td class="sub"><span class="new">Bamboo</span></td>
+            <td class="further">
+              <span class="new"
+                >Planks, Stairs, Slabs, Fences, Fence Gates, Doors, Trapdoors,
+                Pressure Plates, Buttons, Signs, Boats</span
+              >
+            </td>
+          </tr>
+          <tr class="building">
+            <td class="sub"><span class="new">Pale Oak</span></td>
+            <td class="further">
+              <span class="new"
+                >Planks, Stairs, Slabs, Fences, Fence Gates, Doors, Trapdoors,
+                Pressure Plates, Buttons, Signs, Boats</span
+              >
+            </td>
+          </tr>
+          <tr class="building">
+            <td class="sub">Crimson</td>
+            <td class="further">
+              Planks, Stairs, Slabs, Fences, Fence Gates, Doors, Trapdoors,
+              Pressure Plates, Buttons, Signs
+            </td>
+          </tr>
+          <tr class="building">
+            <td class="sub">Warped</td>
+            <td class="further">
+              Planks, Stairs, Slabs, Fences, Fence Gates, Doors, Trapdoors,
+              Pressure Plates, Buttons, Signs
+            </td>
+          </tr>
+          <tr class="building">
+            <td class="sub">Cobblestone</td>
+            <td class="further">Mossy Cobblestone, Stairs, Slabs, Walls</td>
+          </tr>
+          <tr class="building">
+            <td class="sub">Stone</td>
+            <td class="further">
+              Stone Bricks, Mossy Stone Bricks, Cracked Stone Bricks, Chiseled
+              Stone Bricks, Stairs, Slabs, Walls
+            </td>
+          </tr>
+          <tr class="building">
+            <td class="sub">Deepslate</td>
+            <td class="further">
+              Deepslate Bricks, Cracked Deepslate Bricks, Deepslate Tiles,
+              Cracked Deepslate Tiles, Chiseled Deepslate, Stairs, Slabs, Walls
+            </td>
+          </tr>
+          <tr class="building">
+            <td class="sub">Andesite</td>
+            <td class="further">Polished Andesite, Stairs, Slabs, Walls</td>
+          </tr>
+          <tr class="building">
+            <td class="sub">Diorite</td>
+            <td class="further">Polished Diorite, Stairs, Slabs, Walls</td>
+          </tr>
+          <tr class="building">
+            <td class="sub">Granite</td>
+            <td class="further">Polished Granite, Stairs, Slabs, Walls</td>
+          </tr>
+          <tr class="building">
+            <td class="sub">Sandstone</td>
+            <td class="further">
+              Red Sandstone, Smooth Sandstone, Cut Sandstone, Chiseled Sandstone
+              (all variants), Stairs, Slabs, Walls
+            </td>
+          </tr>
+          <tr class="building">
+            <td class="sub"><span class="new">Tuff</span></td>
+            <td class="further">
+              <span class="new"
+                >Polished Tuff, Tuff Bricks, Chiseled Tuff, Chiseled Tuff
+                Bricks, Stairs, Slabs, Walls</span
+              >
+            </td>
+          </tr>
+          <tr class="building">
+            <td class="sub">Mud Bricks</td>
+            <td class="further">Mud Bricks, Stairs, Slabs, Walls</td>
+          </tr>
+          <tr class="building">
+            <td class="sub">Blackstone</td>
+            <td class="further">
+              Polished Blackstone, Polished Blackstone Bricks, Cracked Polished
+              Blackstone Bricks, Chiseled Polished Blackstone, Gilded
+              Blackstone, Stairs, Slabs, Walls
+            </td>
+          </tr>
+          <tr class="building">
+            <td class="sub">Nether Bricks</td>
+            <td class="further">
+              Nether Bricks, Red Nether Bricks, Cracked Nether Bricks, Chiseled
+              Nether Bricks, Stairs, Slabs, Walls, Fences
+            </td>
+          </tr>
+          <tr class="building">
+            <td class="sub">Prismarine</td>
+            <td class="further">
+              Prismarine Bricks, Dark Prismarine, Stairs, Slabs, Walls
+            </td>
+          </tr>
+          <tr class="building">
+            <td class="sub">Purpur</td>
+            <td class="further">Purpur Block, Purpur Pillar, Stairs, Slabs</td>
+          </tr>
+          <tr class="building">
+            <td class="sub">Quartz</td>
+            <td class="further">
+              Quartz Block, Chiseled Quartz, Quartz Pillar, Quartz Bricks,
+              Smooth Quartz, Stairs, Slabs
+            </td>
+          </tr>
+          <tr class="building">
+            <td class="sub"><span class="new">Copper</span></td>
+            <td class="further">
+              <span class="new"
+                >Cut Copper (all oxidation states), Stairs, Slabs</span
+              >
+            </td>
+          </tr>
+
+          <tr class="mob-drops">
+            <td class="cat" rowspan="12">Mob Drops</td>
+            <td class="sub">Feathers</td>
+            <td class="further"></td>
+          </tr>
+
+          <tr class="mob-drops">
+            <td class="sub">Ink Sac</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="mob-drops">
+            <td class="sub">Glow Ink Sac, Bonemeal, Bone Blocks</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="mob-drops">
+            <td class="sub">Spider Eyes</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="mob-drops">
+            <td class="sub">String<br />Slime Ball</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="mob-drops">
+            <td class="sub">Gunpowder</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="mob-drops">
+            <td class="sub">Ender Pearls</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="mob-drops">
+            <td class="sub">Blaze Rods, Blaze Powder</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="mob-drops">
+            <td class="sub">Ghast Tears</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="mob-drops">
+            <td class="sub">Phantom Membrane</td>
+            <td class="further"></td>
+          </tr>
+
+          <tr class="mob-drops">
+            <td class="sub">Prismarine Shards, Prismarine Crystals</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="mob-drops">
+            <td class="sub">
+              <span class="new">Breeze Rod<br />Wind Charge</span>
+            </td>
+            <td class="further"></td>
+          </tr>
+
+          <tr class="minerals">
+            <td class="cat" rowspan="11">Minerals</td>
+            <td class="sub">Coal, Coal Blocks, Charcoal</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="minerals">
+            <td class="sub">Iron Bars, Iron Nuggets, Iron Blocks</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="minerals">
+            <td class="sub">Emerald, Emerald Blocks</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="minerals">
+            <td class="sub">Gold Bars, Gold Nuggets, Gold Blocks</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="minerals">
+            <td class="sub">Diamonds, Diamond Blocks</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="minerals">
+            <td class="sub">Copper Ingots, Copper Blocks</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="minerals">
+            <td class="sub">
+              Ancient Debris, Netherite Scrap, Netherite Ingot, Block of
+              Netherite
+            </td>
+            <td class="further"></td>
+          </tr>
+          <tr class="minerals">
+            <td class="sub">Lapis Lazuli Ore</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="minerals">
+            <td class="sub">Redstone Ore</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="minerals">
+            <td class="sub">Emerald, Emerald Blocks</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="minerals">
+            <td class="sub">Amethyst Shards, Amethyst Blocks</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="farming">
+            <td class="cat" rowspan="9">Farming</td>
+            <td class="sub">Beehive, Bee Nest, Honeycomb Blocks</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="farming">
+            <td class="sub">Cocoa Beans</td>
+            <td class="further"></td>
+          </tr>
+
+          <tr class="farming">
+            <td class="sub">Sugar Cane</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="farming">
+            <td class="sub">Sweet Berries<br />Glow Berries</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="farming">
+            <td class="sub">Carrots</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="farming">
+            <td class="sub">Potatoes</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="farming">
+            <td class="sub">
+              Wheat, Wheat Seeds<br />Beetroot, Beetroot Seeds
+            </td>
+            <td class="further"></td>
+          </tr>
+          <tr class="farming">
+            <td class="sub">Melons, Melon Seeds<br />Pumpkins</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="farming">
+            <td class="sub">Produce</td>
+            <td class="further">Leather, Feathers, Eggs, Milk, Paper, Books</td>
+          </tr>
+
+          <tr class="misc">
+            <td class="cat" rowspan="13">Misc. Valuables</td>
+            <td class="sub">Misc.</td>
+            <td class="further">Mob Heads, Dragon Eggs, Nether Star, Beacon</td>
+          </tr>
+          <tr class="misc">
+            <td class="sub">Totems</td>
+            <td class="further">Totem of Undying</td>
+          </tr>
+          <tr class="misc">
+            <td class="sub">Light Blocks</td>
+            <td class="further">
+              Torch, Soul Torch, Redstone Torch, Jack O'Lantern, Sea Lantern,
+              Glowstone, Shroomlight, Lanterns, Soul Lanterns, Redstone Lamps,
+              End Rods, Froglight, Amethyst, Budding Amethyst
+            </td>
+          </tr>
+          <tr class="misc">
+            <td class="sub"><span class="new">Trial Items</span></td>
+            <td class="further">
+              <span class="new"
+                >Trial Key, Ominous Trial Key, Ominous Bottle, Heavy Core,
+                Vault, Ominous Vault, Crafter, Trial Spawner</span
+              >
+            </td>
+          </tr>
+          <tr class="misc">
+            <td class="sub"><span class="new">Armor Trims</span></td>
+            <td class="further">
+              <span class="new">All armor trim smithing templates</span>
+            </td>
+          </tr>
+          <tr class="misc">
+            <td class="sub"><span class="new">Pottery Sherds</span></td>
+            <td class="further">
+              <span class="new">All pottery sherd variants</span>
+            </td>
+          </tr>
+          <tr class="misc">
+            <td class="sub">Paintings</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="misc">
+            <td class="sub">Item Frames, Glow Item Frames</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="misc">
+            <td class="sub">Maps</td>
+            <td class="further">
+              Empty Maps, Locator Maps, Ocean Explorer/Woodland Explorer Maps
+            </td>
+          </tr>
+          <tr class="misc">
+            <td class="sub">Fireworks, Firework Stars</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="misc">
+            <td class="sub">Utility</td>
+            <td class="further">
+              Scaffoldings, Chests, Trapped Chests, Barrels, Ender Chests,
+              Shulker Boxes (all colors), Hoppers, Furnaces, Blast Furnaces,
+              Smokers, Crafting Tables, Anvils, Grindstones, Enchanting Tables,
+              Brewing Stands, Looms, Cartography Tables, Stonecutters, Smithing
+              Tables, Anvils, Grindstones
+            </td>
+          </tr>
+          <tr class="misc">
+            <td class="sub">
+              <span class="new">Resin Clump, Resin Bricks</span>
+            </td>
+            <td class="further"><span class="new">New 1.21.4 items</span></td>
+          </tr>
+          <tr class="misc">
+            <td class="sub"><span class="new">Creaking Heart</span></td>
+            <td class="further"><span class="new">New 1.21.4 block</span></td>
+          </tr>
+          <tr class="food">
+            <td class="cat" rowspan="16">Food</td>
+            <td class="sub">Golden</td>
+            <td class="further">Golden Apples, Golden Carrots</td>
+          </tr>
+          <tr class="food">
+            <td class="sub">Raw Meat</td>
+            <td class="further">Beef, Porkchop, Mutton, Chicken, Rabbit</td>
+          </tr>
+          <tr class="food">
+            <td class="sub">Cooked Meat</td>
+            <td class="further">
+              Cooked Beef, Cooked Porkchop, Cooked Mutton, Cooked Chicken,
+              Cooked Rabbit
+            </td>
+          </tr>
+          <tr class="food">
+            <td class="sub">Raw Fish</td>
+            <td class="further">Cod, Salmon, Tropical Fish, Pufferfish</td>
+          </tr>
+          <tr class="food">
+            <td class="sub">Cooked Fish</td>
+            <td class="further">Cooked Cod, Cooked Salmon</td>
+          </tr>
+          <tr class="food">
+            <td class="sub">Stews</td>
+            <td class="further">
+              Mushroom Stew, Rabbit Stew, Suspicious Stew, Beetroot Soup
+            </td>
+          </tr>
+          <tr class="food">
+            <td class="sub">Vegetables</td>
+            <td class="further">
+              Beetroot, Carrot, Potato, Baked Potato, Poisonous Potato
+            </td>
+          </tr>
+          <tr class="food">
+            <td class="sub">Fruits</td>
+            <td class="further">
+              Apples, Sweet Berries, Glow Berries, Melon Slice, Chorus Fruit
+            </td>
+          </tr>
+          <tr class="food">
+            <td class="sub">Bread</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="food">
+            <td class="sub">Pumpkin Pie</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="food">
+            <td class="sub">Cake</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="food">
+            <td class="sub">Cookies</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="food">
+            <td class="sub">Milk</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="food">
+            <td class="sub">Sugar</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="food">
+            <td class="sub">Rotten Flesh</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="food">
+            <td class="sub">Bowl</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="ocean">
+            <td class="cat" rowspan="8">Ocean</td>
+            <td class="sub">Kelp, Dried Kelp</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="ocean">
+            <td class="sub">Sea Grass, Scutes</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="ocean">
+            <td class="sub">Coral, Coral Fans</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="ocean">
+            <td class="sub">Heart of the Sea, Nautilus Shell, Conduit</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="ocean">
+            <td class="sub">Prismarine</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="ocean">
+            <td class="sub">Sponges</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="ocean">
+            <td class="sub">Ice, Packed Ice, Blue Ice</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="ocean">
+            <td class="sub">Turtle Eggs</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="mechanisms">
+            <td class="cat" rowspan="11">Mechanisms</td>
+            <td class="sub">Redstone Torches, Repeaters, Comparators</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="mechanisms">
+            <td class="sub">Dispenser, Dropper, Hopper</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="mechanisms">
+            <td class="sub">Rails and Minecarts</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="mechanisms">
+            <td class="sub">Daylight Detector, Observer</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="mechanisms">
+            <td class="sub">Redstone Lamp</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="mechanisms">
+            <td class="sub">Note Blocks, Jukebox, Music Discs</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="mechanisms">
+            <td class="sub">Piston and Sticky Piston</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="mechanisms">
+            <td class="sub">
+              Buttons, Pressure Plates, Levers, Tripwire Hooks
+            </td>
+            <td class="further"></td>
+          </tr>
+          <tr class="mechanisms">
+            <td class="sub">Slime Blocks, Honey Blocks</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="mechanisms">
+            <td class="sub">Target Block</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="mechanisms">
+            <td class="sub">TNT</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="end">
+            <td class="cat" rowspan="2">End</td>
+            <td class="sub">End Misc.</td>
+            <td class="further">
+              Eyes of Ender<br />Shulker Shells <br />Elytra<br />Chorus Plants,
+              Chorus Flower, Chorus Fruit
+            </td>
+          </tr>
+          <tr class="end">
+            <td class="sub">End Blocks</td>
+            <td class="further">
+              Purpur Block, Purpur Pillar<br />End Stone, End Stone Bricks
+            </td>
+          </tr>
+
+          <tr class="nether">
+            <td class="cat" rowspan="9">Nether</td>
+            <td class="sub">Netherrack</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="nether">
+            <td class="sub">Nether Bricks</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="nether">
+            <td class="sub">Magma Block</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="nether">
+            <td class="sub">Soul Sand, Soul Soil</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="nether">
+            <td class="sub">Nether Quartz, Quartz Blocks+</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="nether">
+            <td class="sub">Basalt</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="nether">
+            <td class="sub">Blackstone</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="nether">
+            <td class="sub">Obsidian/Crying Obsidian</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="nether">
+            <td class="sub">Nether Natural</td>
+            <td class="further">
+              Crimson/Warped Roots<br />Weeping/Twisting Vines<br />Crimson/Warped
+              Fungus<br />Crimson Stem<br />Warped Stem<br />Nether Wart<br />
+            </td>
+          </tr>
+
+          <tr class="natural">
+            <td class="cat" rowspan="6">Natural</td>
+            <td class="sub">Vegetation</td>
+            <td class="further">
+              Flowers<br />Grass, Tall Grass, Fern, Tall Fern<br />Lily Pad<br />Vines<br />Dead
+              Bush<br />Leaves<br />Saplings<br />Cacti<br />Clay Pot
+            </td>
+          </tr>
+          <tr class="natural">
+            <td class="sub">Brown/Red Mushrooms</td>
+            <td class="further"></td>
+          </tr>
+
+          <tr class="natural">
+            <td class="sub">Moss Block, Moss Carpet</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="natural">
+            <td class="sub">Azalea, Flowering Azalea</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="natural">
+            <td class="sub">Spore Blossom</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="natural">
+            <td class="sub">Dripleaf (Big and Small)</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="potion">
+            <td class="cat" rowspan="4">Potion Brewing</td>
+            <td class="sub">Ingredients</td>
+            <td class="further">
+              Glistering Melon Slice, Fermented Spider Eye, etc
+            </td>
+          </tr>
+          <tr class="potion">
+            <td class="sub">Base Potions</td>
+            <td class="further">Awkward, Mundane, Dragon's Breath etc.</td>
+          </tr>
+          <tr class="potion">
+            <td class="sub">Potions</td>
+            <td class="further"></td>
+          </tr>
+          <tr class="potion">
+            <td class="sub">Glass Bottles</td>
+            <td class="further"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
