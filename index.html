@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Minecraft Item Organisation Cheat Sheet (1.21)</title>
+    <!-- Minecraft Style -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@700&display=swap"
+      rel="stylesheet"
+    />
     <style>
       * {
         margin: 0;
@@ -11,127 +16,577 @@
         box-sizing: border-box;
       }
       body {
-        font-family: Arial, sans-serif;
-        background: #2c3e50;
-        padding: 10px;
-        font-size: 10px;
+        font-family: "Fredoka", system-ui, -apple-system, sans-serif;
+        background: linear-gradient(135deg, #f6f8ff 0%, #e9eeff 100%);
+        padding: 12px;
+        font-size: 13px; /* reduced overall text size */
+        color: #000000;
+        line-height: 1.5;
+        min-height: 100vh;
       }
       .container {
         max-width: 1400px;
         margin: 0 auto;
-        background: white;
-        padding: 15px;
-        border-radius: 5px;
+        background-color: #ffffff;
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
       }
       h1 {
         text-align: center;
-        color: #000;
-        margin-bottom: 15px;
-        font-size: 16px;
+        color: #1a202c;
+        margin-bottom: 20px;
+        font-size: 30px; /* slightly smaller heading */
         font-weight: 700;
+        font-family: "Nunito", sans-serif;
+        background: linear-gradient(90deg, #3182ce, #805ad5);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 16px;
+        padding: 12px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+
+      .toolbar-section {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .toolbar input[type="search"] {
+        font-family: "Fredoka", sans-serif;
+        font-size: 13px;
+        padding: 8px 12px;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        width: 200px;
+        transition: all 0.2s ease;
+      }
+
+      .toolbar input[type="search"]:focus {
+        outline: none;
+        border-color: #4299e1;
+        box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.2);
+      }
+
+      .toolbar select {
+        font-family: "Fredoka", sans-serif;
+        font-size: 13px;
+        padding: 8px 12px;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        background: white;
+        cursor: pointer;
+      }
+
+      .toolbar button {
+        font-family: "Fredoka", sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        background: linear-gradient(135deg, #4299e1, #667eea);
+        border: none;
+        border-radius: 10px;
+        padding: 8px 12px;
+        cursor: pointer;
+        color: white;
+        transition: all 0.18s ease;
+        box-shadow: 0 3px 8px rgba(66, 153, 225, 0.22);
+        white-space: nowrap;
+      }
+
+      .toolbar button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(66, 153, 225, 0.35);
+      }
+
+      .toolbar button:active {
+        transform: translateY(0);
+      }
+
+      .toolbar .hint {
+        font-size: 13px;
+        color: #4a5568;
+      }
+
+      .stats-panel {
+        display: flex;
+        gap: 16px;
+        padding: 12px;
+        background: white;
+        border-radius: 10px;
+        margin-bottom: 16px;
+        flex-wrap: wrap;
+      }
+
+      .stat-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .stat-value {
+        font-size: 24px;
+        font-weight: bold;
+        color: #2d3748;
+      }
+
+      .stat-label {
+        font-size: 12px;
+        color: #718096;
+      }
+
+      .progress-bar {
+        width: 100%;
+        height: 6px;
+        background: #edf2f7;
+        border-radius: 3px;
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #4299e1, #667eea);
+        transition: width 0.3s ease;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 12px;
+        }
+
+        .toolbar {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .toolbar input[type="search"] {
+          width: 100%;
+        }
+
+        .toolbar-section {
+          justify-content: space-between;
+        }
+
+        table {
+          border-spacing: 4px 4px;
+        }
+
+        th,
+        td {
+          padding: 8px;
+        }
+
+        .cat {
+          width: 20%;
+        }
+
+        .sub {
+          width: 35%;
+        }
+
+        .further {
+          width: 45%;
+        }
+
+        .stat-item {
+          flex: 1 1 calc(50% - 8px);
+        }
+      }
+      table {
+        width: 100%;
+        border-collapse: separate;
+        /* horizontal gap then vertical gap */
+        border-spacing: 8px 8px;
       }
       th,
       td {
-        border: 1px solid #000;
-        padding: 4px 6px;
+        padding: 10px; /* reduced padding for denser layout */
         text-align: left;
         vertical-align: top;
+        border-radius: 8px;
+        /* make td transparent so the tr background (category color) shows through */
+        background: transparent;
+        box-shadow: none;
+        transition: all 0.14s ease;
       }
       th {
-        background: #fff;
-        color: #000;
-        font-weight: 700;
-        font-size: 10px;
+        background: linear-gradient(135deg, #4299e1, #667eea);
+        color: white;
+        font-weight: 600;
+        font-size: 13px; /* smaller header text */
+        letter-spacing: 0.4px;
+        padding: 10px;
       }
+      /* column widths & readable text colors */
       .cat {
+        width: 15%;
         font-weight: 700;
-        width: 12%;
+        /* Do not force a separate background on the category cell.
+           The whole row's `tr.<category>` background should be the single
+           source of truth so the category cell matches it exactly. */
+        background: transparent;
+        color: inherit;
+        padding-left: 8px;
       }
       .sub {
-        width: 20%;
-        font-size: 9px;
+        width: 30%;
+        font-size: 13px; /* smaller sub text */
+        font-weight: 600;
+        color: #0b1220; /* dark text for light backgrounds */
       }
       .further {
-        width: 53%;
-        font-size: 9px;
-        line-height: 1.3;
+        width: 55%;
+        font-size: 12px; /* smaller further text */
+        line-height: 1.5;
+        color: #0b1220; /* dark text for light backgrounds */
       }
       .ch,
       .sh {
         text-align: center;
-        font-weight: 600;
+        font-weight: normal;
         width: 7.5%;
       }
 
+      /* pastel palette for category rows */
       .combat {
-        background-color: #b3e5fc;
+        background: linear-gradient(135deg, #fff0f6 0%, #ffd6e8 100%);
       }
       .tools {
-        background-color: #ffe0b2;
+        background: linear-gradient(135deg, #fffaf0 0%, #fff3c4 100%);
       }
       .colorful {
-        background-color: #f8bbd0;
+        background: linear-gradient(135deg, #f6e6ff 0%, #fbefff 100%);
       }
       .wood {
-        background-color: #d7ccc8;
+        background: linear-gradient(135deg, #fff7ed 0%, #fff0db 100%);
       }
       .blocks {
-        background-color: #e0e0e0;
+        background: linear-gradient(135deg, #eef2ff 0%, #f4f7ff 100%);
       }
       .mob-drops {
-        background-color: #c5e1a5;
+        background: linear-gradient(135deg, #e8fff0 0%, #f0fff6 100%);
       }
       .potion {
-        background-color: #ffcdd2;
+        background: linear-gradient(135deg, #fff6f9 0%, #ffeef6 100%);
       }
       .minerals {
-        background-color: #fff9c4;
+        background: linear-gradient(135deg, #fffef0 0%, #fff9d6 100%);
       }
       .farming {
-        background-color: #ffe082;
+        background: linear-gradient(135deg, #f6ffe7 0%, #f7fff4 100%);
       }
       .misc {
-        background-color: #b3e5fc;
+        background: linear-gradient(135deg, #eef9ff 0%, #f4fbff 100%);
       }
       .food {
-        background-color: #fff59d;
+        background: linear-gradient(135deg, #fff6ee 0%, #fff9f0 100%);
       }
       .ocean {
-        background-color: #b2ebf2;
+        background: linear-gradient(135deg, #e6fbff 0%, #e8fff9 100%);
       }
       .mechanisms {
-        background-color: #ffab91;
+        background: linear-gradient(135deg, #fff6f5 0%, #fff7f6 100%);
       }
       .enchanting {
-        background-color: #e1bee7;
+        background: linear-gradient(135deg, #f3e9ff 0%, #faf0ff 100%);
       }
       .end {
-        background-color: #fff9c4;
+        background: linear-gradient(135deg, #fffef6 0%, #fffdf0 100%);
       }
       .nether {
-        background-color: #f8bbd0;
+        background: linear-gradient(135deg, #fff5f6 0%, #fff8f9 100%);
       }
       .natural {
-        background-color: #c5e1a5;
+        background: linear-gradient(135deg, #f0fff4 0%, #f7fff9 100%);
       }
       .building {
-        background-color: #dcedc8;
+        background: linear-gradient(135deg, #fff9e6 0%, #fffef6 100%);
       }
       .decoration {
-        background-color: #dcedc8;
+        background: linear-gradient(135deg, #fffaf0 0%, #fffef6 100%);
       }
       .rail {
-        background-color: #ffecb3;
+        background: linear-gradient(135deg, #fffaf0 0%, #fffdf6 100%);
+      }
+
+      /* pastel color 'pills' for the category column matching each row */
+      /* Make the category cell inherit the row background so it is visually
+         identical to the row (no separate pill). This ensures the whole row
+         — including the category cell — shows the exact same gradient. */
+      td.cat {
+        background: transparent !important;
+        box-shadow: none !important;
+        color: inherit;
+        font-weight: 700;
+        padding-left: 8px;
+      }
+
+      /* Also ensure sub cells don't have a separate background override so
+         the row gradient remains the single source of truth. */
+      tbody tr td.sub,
+      tbody tr td.further {
+        background: transparent !important;
+        box-shadow: none !important;
       }
       .new {
-        color: #d32f2f;
+        position: relative;
+        display: inline-block;
+        color: #e53e3e;
         font-weight: 700;
+        padding-right: 8px;
       }
+      .new::after {
+        /* show NEW plus the checklist version (set via data-new attribute)
+           JS will set data-new="1.21+" on new badges. */
+        content: "NEW " attr(data-new);
+        position: relative;
+        display: inline-block;
+        font-family: "Fredoka", sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        color: white;
+        background: linear-gradient(135deg, #f56565, #e53e3e);
+        padding: 4px 8px;
+        border-radius: 999px;
+        margin-left: 8px;
+        box-shadow: 0 2px 4px rgba(229, 62, 62, 0.3);
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      .item-checkbox {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 14px;
+        height: 14px;
+        border-radius: 4px;
+        border: 1px solid #cbd5e0;
+        background: white;
+        margin-right: 6px;
+        vertical-align: middle;
+        cursor: pointer;
+        transition: all 0.12s ease;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      }
+
+      .item-quantity {
+        width: 50px;
+        height: 20px;
+        padding: 2px 4px;
+        border: 1px solid #e2e8f0;
+        border-radius: 4px;
+        font-size: 12px;
+        margin-left: 8px;
+        vertical-align: middle;
+        text-align: center;
+      }
+
+      .item-quantity:focus {
+        outline: none;
+        border-color: #4299e1;
+        box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.2);
+      }
+
+      .item-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .export-btn {
+        background: linear-gradient(135deg, #48bb78, #38a169) !important;
+      }
+
+      .import-btn {
+        background: linear-gradient(135deg, #ed8936, #dd6b20) !important;
+      }
+      .item-checkbox:checked {
+        background: linear-gradient(180deg, #e9e9ea 0%, #d0d0d1 100%);
+        border-color: #bfc3c7;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23343a40' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M5 13l4 4L19 7'/></svg>");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 11px 11px;
+      }
+
+      /* Removed dark-checkbox overrides for the Ground (blocks) category so
+         it uses the default light checkbox style like other categories. */
+
+      /* If any other row class has dark text forced to white, ensure checkbox matches */
+      tr.cat td .item-checkbox,
+      td.cat .item-checkbox {
+        /* category cells are dark; if checkbox is inside a category cell (rare), make it high-contrast */
+        background: #2d3748;
+        border-color: #1f2937;
+      }
+      .item-text.checked {
+        text-decoration: line-through;
+        opacity: 0.75;
+        color: #718096;
+      }
+      /* When the subcell is marked checked, gray and 'slice' the following
+         'further' cell to visually indicate the related details are completed. */
+      td.sub.sub-checked + td.further {
+        color: #9aa3ad;
+        text-decoration: line-through;
+        opacity: 0.85;
+        filter: grayscale(100%);
+        position: relative;
+        transition: all 180ms ease;
+      }
+      /* subtle diagonal 'slice' line across the further cell */
+      td.sub.sub-checked + td.further::after {
+        content: "";
+        position: absolute;
+        left: -10%;
+        right: -10%;
+        top: 52%;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(0, 0, 0, 0.08),
+          transparent
+        );
+        transform: rotate(-8deg);
+        pointer-events: none;
+        border-radius: 2px;
+      }
+      /* If the sub cell contains the NEW badge, make the badge desaturated
+         + struck and add a slice line when the item is checked. We use ::before
+         so we don't collide with the existing .new::after badge content. */
+      td.sub.sub-checked .new {
+        color: #9aa3ad;
+        text-decoration: line-through;
+        opacity: 0.85;
+        filter: grayscale(100%);
+        position: relative;
+      }
+      td.sub.sub-checked .new::before {
+        content: "";
+        position: absolute;
+        left: -6%;
+        right: -6%;
+        top: 52%;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(0, 0, 0, 0.08),
+          transparent
+        );
+        transform: rotate(-8deg);
+        pointer-events: none;
+        border-radius: 2px;
+      }
+      /* When a whole category is complete, desaturate and dim the row */
+      tr.category-complete td {
+        filter: grayscale(100%) contrast(0.9);
+        opacity: 0.6;
+      }
+      tr.category-complete .item-text {
+        color: #9aa3ad !important;
+        text-decoration: line-through;
+        opacity: 0.85;
+      }
+      tr:hover td {
+        transform: translateY(-0.5px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.06);
+      }
+
+      /* category color pills */
+      td.cat {
+        background: transparent;
+        box-shadow: none;
+        font-size: 13px;
+      }
+      tr.combat td.sub {
+        background: linear-gradient(180deg, #e1f5fe, #b3e5fc);
+      }
+      tr.tools td.sub {
+        background: linear-gradient(180deg, #fff3e0, #ffe0b2);
+      }
+      tr.building td.sub {
+        background: linear-gradient(180deg, #e8f5e9, #dcedc8);
+      }
+      /* clean: all rows now use pastel backgrounds (light) so default dark text is fine */
     </style>
   </head>
   <body>
     <div class="container">
       <h1>MINECRAFT ITEM ORGANISATION CHEAT SHEET (1.21)</h1>
+
+      <div class="toolbar">
+        <div class="toolbar-section">
+          <input type="search" placeholder="Search items..." id="searchInput" />
+          <select id="filterCategory">
+            <option value="">All Categories</option>
+          </select>
+          <!-- Sorting removed: filtering is sufficient -->
+        </div>
+
+        <div class="toolbar-section">
+          <button class="export-btn" onclick="exportProgress()">
+            Export Progress
+          </button>
+          <button class="import-btn" onclick="importProgress()">
+            Import Progress
+          </button>
+          <button onclick="toggleAllInCategory()">Toggle Category</button>
+          <button onclick="window.resetMinecraftChecklist()">
+            Reset Progress
+          </button>
+          <button onclick="window.__clearMinecraftChecklist()">
+            Clear All
+          </button>
+        </div>
+      </div>
+
+      <div class="stats-panel">
+        <div class="stat-item">
+          <div class="stat-value" id="totalItems">0</div>
+          <div class="stat-label">Total Items</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="itemsCollected">0</div>
+          <div class="stat-label">Items Collected</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="completion">0%</div>
+          <div class="stat-label">Completion</div>
+          <div class="progress-bar">
+            <div
+              class="progress-fill"
+              id="completionBar"
+              style="width: 0%"
+            ></div>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="categoriesComplete">0/0</div>
+          <div class="stat-label">Categories Complete</div>
+        </div>
+      </div>
+
       <table>
         <thead>
           <tr>
@@ -142,127 +597,228 @@
         </thead>
         <tbody>
           <tr class="combat">
-            <td class="cat" rowspan="6">Combat</td>
-            <td class="sub">Swords</td>
-            <td class="further"></td>
+            <td class="cat" rowspan="7">Combat</td>
+            <td class="sub">Sword</td>
+            <td class="further">
+              Wooden Sword, Stone Sword, Iron Sword, Golden Sword, Diamond
+              Sword, Netherite Sword; Enchantments: Sharpness, Smite, Bane of
+              Arthropods, Fire Aspect, Knockback, Looting, Sweeping Edge,
+              Unbreaking, Mending
+            </td>
           </tr>
           <tr class="combat">
-            <td class="sub">Bows, Crossbows</td>
-            <td class="further"></td>
+            <td class="sub">Bow</td>
+            <td class="further">
+              Regular Bow; Enchantments: Power, Punch, Flame, Infinity,
+              Unbreaking, Mending; Crossbow; Enchantments: Multishot, Quick
+              Charge, Piercing
+            </td>
           </tr>
           <tr class="combat">
-            <td class="sub">Trident<br /><span class="new">Mace</span></td>
-            <td class="further"></td>
+            <td class="sub">Trident</td>
+            <td class="further">
+              Can be thrown or used in melee; Enchantments: Loyalty, Channeling,
+              Riptide, Impaling, Unbreaking, Mending
+            </td>
           </tr>
           <tr class="combat">
-            <td class="sub">Armor</td>
-            <td class="further"></td>
+            <td class="sub"><span class="new">Mace</span></td>
+            <td class="further">
+              New melee weapon with knockback capabilities; Can be enchanted
+              with Smiting, Unbreaking, Mending
+            </td>
           </tr>
           <tr class="combat">
-            <td class="sub">Arrows</td>
-            <td class="further"></td>
+            <td class="sub">Arrow</td>
+            <td class="further">
+              Regular Arrow, Spectral Arrow, Tipped Arrow (Weakness, Slowness,
+              Harming, Poison, etc.), <span class="new">Wind Charge</span>
+            </td>
           </tr>
           <tr class="combat">
             <td class="sub">Shield</td>
-            <td class="further"></td>
+            <td class="further">
+              Can be decorated with banners; Enchantments: Unbreaking, Mending;
+              Blocks attacks and projectiles
+            </td>
+          </tr>
+          <tr class="combat">
+            <td class="sub">Armor</td>
+            <td class="further">
+              Helmet, Chestplate, Leggings, Boots; Materials: Leather,
+              Chainmail, Iron, Gold, Diamond, Netherite; Enchantments:
+              Protection, Fire Protection, Blast Protection, Projectile
+              Protection, Thorns, Unbreaking, Mending
+            </td>
           </tr>
           <tr class="tools">
-            <td class="cat" rowspan="15">Tools</td>
+            <td class="cat" rowspan="12">Tools</td>
             <td class="sub">Pickaxe</td>
-            <td class="further"></td>
+            <td class="further">
+              Materials: Wooden, Stone, Iron, Golden, Diamond, Netherite;
+              Enchantments: Efficiency, Fortune, Silk Touch, Unbreaking,
+              Mending; Best for: Stone, Ores, Obsidian
+            </td>
           </tr>
           <tr class="tools">
             <td class="sub">Axe</td>
-            <td class="further"></td>
+            <td class="further">
+              Materials: Wooden, Stone, Iron, Golden, Diamond, Netherite;
+              Enchantments: Efficiency, Fortune, Silk Touch, Unbreaking,
+              Mending; Best for: Wood, Logs, Stems
+            </td>
           </tr>
           <tr class="tools">
             <td class="sub">Shovel</td>
-            <td class="further"></td>
+            <td class="further">
+              Materials: Wooden, Stone, Iron, Golden, Diamond, Netherite;
+              Enchantments: Efficiency, Silk Touch, Unbreaking, Mending; Best
+              for: Dirt, Sand, Gravel
+            </td>
           </tr>
           <tr class="tools">
             <td class="sub">Hoe</td>
-            <td class="further"></td>
-          </tr>
-          <tr class="tools">
-            <td class="sub">Shears</td>
-            <td class="further"></td>
+            <td class="further">
+              Materials: Wooden, Stone, Iron, Golden, Diamond, Netherite;
+              Enchantments: Efficiency, Fortune, Unbreaking, Mending; Best for:
+              Crops, Leaves, Hay Bales
+            </td>
           </tr>
           <tr class="tools">
             <td class="sub">Fishing Rod</td>
-            <td class="further"></td>
+            <td class="further">
+              Enchantments: Luck of the Sea, Lure, Unbreaking, Mending; Can
+              catch: Fish, Treasure, Junk; Works in: Water, Lava (with Lava
+              Fishing enchant)
+            </td>
           </tr>
           <tr class="tools">
-            <td class="sub">Saddle</td>
-            <td class="further"></td>
-          </tr>
-          <tr class="tools">
-            <td class="sub">Buckets</td>
-            <td class="further"></td>
-          </tr>
-          <tr class="tools">
-            <td class="sub">Flint & Steel</td>
-            <td class="further"></td>
-          </tr>
-          <tr class="tools">
-            <td class="sub">Brush</td>
-            <td class="further"></td>
-          </tr>
-          <tr class="tools">
-            <td class="sub">Spyglass</td>
-            <td class="further"></td>
-          </tr>
-          <tr class="tools">
-            <td class="sub">Lead</td>
-            <td class="further"></td>
-          </tr>
-          <tr class="tools">
-            <td class="sub">Name Tags</td>
-            <td class="further"></td>
+            <td class="sub">Bucket</td>
+            <td class="further">
+              Variants: Empty Bucket, Water Bucket, Lava Bucket, Milk Bucket,
+              Powder Snow Bucket, Fish Bucket (all fish types); Use for: Liquid
+              transport, Mob milking, Fish transport
+            </td>
           </tr>
           <tr class="tools">
             <td class="sub">Compass</td>
-            <td class="further"></td>
+            <td class="further">
+              Types: Regular (points to spawn), Recovery (points to death
+              location), Lodestone (points to lodestone); Works in: Overworld,
+              The Nether (with Lodestone)
+            </td>
           </tr>
           <tr class="tools">
-            <td class="sub">Clock</td>
-            <td class="further"></td>
+            <td class="sub">Shears</td>
+            <td class="further">
+              Uses: Sheep shearing, Leaf collection, Vine cutting, Web
+              collection; Enchantments: Efficiency, Unbreaking, Mending
+            </td>
+          </tr>
+          <tr class="tools">
+            <td class="sub">Brush</td>
+            <td class="further">
+              Uses: Archaeology, cleaning suspicious blocks; Works on:
+              Suspicious Sand, Suspicious Gravel; Finds: Pottery Sherds, Ancient
+              Items
+            </td>
+          </tr>
+          <tr class="tools">
+            <td class="sub">Flint and Steel</td>
+            <td class="further">
+              Uses: Light fires, Light Nether Portals, Light Campfires;
+              Enchantments: Unbreaking, Mending
+            </td>
+          </tr>
+          <tr class="tools">
+            <td class="sub">Lead</td>
+            <td class="further">
+              Works on: Most passive mobs; Can be tied to: Fence posts; Made
+              from: String and Slimeballs
+            </td>
+          </tr>
+          <tr class="tools">
+            <td class="sub">Spyglass</td>
+            <td class="further">
+              Made from: Copper Ingots and Amethyst Shard; Use: Long-distance
+              viewing; Zoom level: 10x
+            </td>
           </tr>
           <tr class="colorful">
             <td class="cat" rowspan="9">Colorful</td>
             <td class="sub">Wool</td>
-            <td class="further"></td>
+            <td class="further">
+              All 16 colors: White, Orange, Magenta, Light Blue, Yellow, Lime,
+              Pink, Gray, Light Gray, Cyan, Purple, Blue, Brown, Green, Red,
+              Black; Can be dyed, sheared from sheep, or crafted
+            </td>
           </tr>
           <tr class="colorful">
             <td class="sub">Dyes</td>
-            <td class="further"></td>
+            <td class="further">
+              16 colors from various sources: White (Bone Meal), Red
+              (Poppy/Beetroot), Yellow (Dandelion), Blue (Lapis/Cornflower),
+              Brown (Cocoa Beans), Green (Cactus), Black (Ink Sac), etc. Used to
+              color: Wool, Concrete, Terracotta, Glass, Banners, Beds, Sheep
+            </td>
           </tr>
           <tr class="colorful">
             <td class="sub">Banners</td>
-            <td class="further"></td>
+            <td class="further">
+              Available in all 16 colors; Customizable with patterns using Loom;
+              Can add multiple layers; Used for: Decoration, Shield
+              customization, Map markers; Patterns from: Dyes, Bricks, Vines,
+              Creeper Heads, etc.
+            </td>
           </tr>
           <tr class="colorful">
             <td class="sub">Concrete</td>
-            <td class="further"></td>
+            <td class="further">
+              All 16 colors available; Crafted from: Concrete Powder + Water
+              contact; Concrete Powder made from: Sand + Gravel + Dye; More
+              solid color than wool or terracotta
+            </td>
           </tr>
           <tr class="colorful">
             <td class="sub">Terracotta, Glazed Terracotta</td>
-            <td class="further"></td>
+            <td class="further">
+              Regular Terracotta: Natural clay color, can be dyed in 16 colors;
+              Glazed Terracotta: Unique patterns for each color, made by
+              smelting dyed terracotta; Used for: Decoration, Color variety in
+              builds
+            </td>
           </tr>
           <tr class="colorful">
             <td class="sub">Glass Blocks, Glass Panes</td>
-            <td class="further"></td>
+            <td class="further">
+              Available in all 16 colors; Glass Blocks: Full blocks, made from
+              smelting sand then dying; Glass Panes: Thin variant, crafted from
+              6 glass blocks; Uses: Windows, Decoration, Light filtering
+            </td>
           </tr>
           <tr class="colorful">
             <td class="sub">Beds</td>
-            <td class="further"></td>
+            <td class="further">
+              Available in all 16 colors; Crafted from: 3 Wool + 3 Planks; Set
+              spawn point; Each player needs their own bed for multiplayer
+              sleep; Can be dyed to change color
+            </td>
           </tr>
           <tr class="colorful">
             <td class="sub">Carpets</td>
-            <td class="further"></td>
+            <td class="further">
+              All 16 colors available; Crafted from: 2 Wool of same color; Thin
+              decorative floor covering; Can be placed on Llamas as decorative
+              armor; Stops mob spawning on the block they cover
+            </td>
           </tr>
           <tr class="colorful">
             <td class="sub">Candles</td>
-            <td class="further"></td>
+            <td class="further">
+              Available in all 16 colors plus natural; Crafted from: String +
+              Honeycomb, then can be dyed; Can stack 1-4 candles per block;
+              Light level increases with more candles; Can be lit/unlit
+            </td>
           </tr>
           <tr class="wood">
             <td class="cat" rowspan="11">Wood</td>
@@ -298,7 +854,7 @@
             <td class="further"></td>
           </tr>
           <tr class="wood">
-            <td class="sub"><span class="new">Bamboo</span></td>
+            <td class="sub">Bamboo</td>
             <td class="further"></td>
           </tr>
           <tr class="wood">
@@ -453,21 +1009,17 @@
             </td>
           </tr>
           <tr class="building">
-            <td class="sub"><span class="new">Bamboo</span></td>
+            <td class="sub">Bamboo</td>
             <td class="further">
-              <span class="new"
-                >Planks, Stairs, Slabs, Fences, Fence Gates, Doors, Trapdoors,
-                Pressure Plates, Buttons, Signs, Boats</span
-              >
+              Planks, Stairs, Slabs, Fences, Fence Gates, Doors, Trapdoors,
+              Pressure Plates, Buttons, Signs, Boats
             </td>
           </tr>
           <tr class="building">
             <td class="sub"><span class="new">Pale Oak</span></td>
             <td class="further">
-              <span class="new"
-                >Planks, Stairs, Slabs, Fences, Fence Gates, Doors, Trapdoors,
-                Pressure Plates, Buttons, Signs, Boats</span
-              >
+              Planks, Stairs, Slabs, Fences, Fence Gates, Doors, Trapdoors,
+              Pressure Plates, Buttons, Signs, Boats
             </td>
           </tr>
           <tr class="building">
@@ -524,10 +1076,8 @@
           <tr class="building">
             <td class="sub"><span class="new">Tuff</span></td>
             <td class="further">
-              <span class="new"
-                >Polished Tuff, Tuff Bricks, Chiseled Tuff, Chiseled Tuff
-                Bricks, Stairs, Slabs, Walls</span
-              >
+              Polished Tuff, Tuff Bricks, Chiseled Tuff, Chiseled Tuff Bricks,
+              Stairs, Slabs, Walls
             </td>
           </tr>
           <tr class="building">
@@ -569,9 +1119,7 @@
           <tr class="building">
             <td class="sub"><span class="new">Copper</span></td>
             <td class="further">
-              <span class="new"
-                >Cut Copper (all oxidation states), Stairs, Slabs</span
-              >
+              Cut Copper (all oxidation states), Stairs, Slabs
             </td>
           </tr>
 
@@ -738,23 +1286,19 @@
           <tr class="misc">
             <td class="sub"><span class="new">Trial Items</span></td>
             <td class="further">
-              <span class="new"
-                >Trial Key, Ominous Trial Key, Ominous Bottle, Heavy Core,
-                Vault, Ominous Vault, Crafter, Trial Spawner</span
-              >
+              Trial Key, Ominous Trial Key, Ominous Bottle, Heavy Core, Vault,
+              Ominous Vault, Crafter, Trial Spawner
             </td>
           </tr>
           <tr class="misc">
             <td class="sub"><span class="new">Armor Trims</span></td>
             <td class="further">
-              <span class="new">All armor trim smithing templates</span>
+              <span>All armor trim smithing templates</span>
             </td>
           </tr>
           <tr class="misc">
-            <td class="sub"><span class="new">Pottery Sherds</span></td>
-            <td class="further">
-              <span class="new">All pottery sherd variants</span>
-            </td>
+            <td class="sub">Pottery Sherds</td>
+            <td class="further">All pottery sherd variants</td>
           </tr>
           <tr class="misc">
             <td class="sub">Paintings</td>
@@ -788,11 +1332,11 @@
             <td class="sub">
               <span class="new">Resin Clump, Resin Bricks</span>
             </td>
-            <td class="further"><span class="new">New 1.21.4 items</span></td>
+            <td class="further">New 1.21.4 items</td>
           </tr>
           <tr class="misc">
             <td class="sub"><span class="new">Creaking Heart</span></td>
-            <td class="further"><span class="new">New 1.21.4 block</span></td>
+            <td class="further">New 1.21.4 block</td>
           </tr>
           <tr class="food">
             <td class="cat" rowspan="16">Food</td>
@@ -1055,5 +1599,670 @@
         </tbody>
       </table>
     </div>
+    <script>
+      // Minecraft database and UI management
+      const MinecraftDB = {
+        categories: {
+          combat: {
+            name: "Combat",
+            items: [
+              { name: "Wooden Sword", type: "weapon" },
+              { name: "Stone Sword", type: "weapon" },
+              { name: "Iron Sword", type: "weapon" },
+              { name: "Diamond Sword", type: "weapon" },
+              { name: "Netherite Sword", type: "weapon" },
+              { name: "Bow", type: "weapon" },
+              { name: "Crossbow", type: "weapon" },
+              { name: "Trident", type: "weapon" },
+              { name: "Mace", type: "weapon", version: "1.21" },
+              { name: "Shield", type: "defense" },
+              // Armor sets
+              { name: "Leather Helmet", type: "armor" },
+              { name: "Leather Chestplate", type: "armor" },
+              { name: "Leather Leggings", type: "armor" },
+              { name: "Leather Boots", type: "armor" },
+              { name: "Chainmail Helmet", type: "armor" },
+              { name: "Chainmail Chestplate", type: "armor" },
+              { name: "Chainmail Leggings", type: "armor" },
+              { name: "Chainmail Boots", type: "armor" },
+              { name: "Iron Helmet", type: "armor" },
+              { name: "Iron Chestplate", type: "armor" },
+              { name: "Iron Leggings", type: "armor" },
+              { name: "Iron Boots", type: "armor" },
+              { name: "Diamond Helmet", type: "armor" },
+              { name: "Diamond Chestplate", type: "armor" },
+              { name: "Diamond Leggings", type: "armor" },
+              { name: "Diamond Boots", type: "armor" },
+              { name: "Netherite Helmet", type: "armor" },
+              { name: "Netherite Chestplate", type: "armor" },
+              { name: "Netherite Leggings", type: "armor" },
+              { name: "Netherite Boots", type: "armor" },
+            ],
+          },
+          tools: {
+            name: "Tools",
+            items: [
+              // Basic tools
+              { name: "Wooden Pickaxe", type: "tool" },
+              { name: "Wooden Axe", type: "tool" },
+              { name: "Wooden Shovel", type: "tool" },
+              { name: "Wooden Hoe", type: "tool" },
+              { name: "Stone Pickaxe", type: "tool" },
+              { name: "Stone Axe", type: "tool" },
+              { name: "Stone Shovel", type: "tool" },
+              { name: "Stone Hoe", type: "tool" },
+              { name: "Iron Pickaxe", type: "tool" },
+              { name: "Iron Axe", type: "tool" },
+              { name: "Iron Shovel", type: "tool" },
+              { name: "Iron Hoe", type: "tool" },
+              { name: "Diamond Pickaxe", type: "tool" },
+              { name: "Diamond Axe", type: "tool" },
+              { name: "Diamond Shovel", type: "tool" },
+              { name: "Diamond Hoe", type: "tool" },
+              { name: "Netherite Pickaxe", type: "tool" },
+              { name: "Netherite Axe", type: "tool" },
+              { name: "Netherite Shovel", type: "tool" },
+              { name: "Netherite Hoe", type: "tool" },
+              // Special tools
+              { name: "Fishing Rod", type: "special" },
+              { name: "Shears", type: "special" },
+              { name: "Flint and Steel", type: "special" },
+              { name: "Bucket", type: "special" },
+              { name: "Water Bucket", type: "special" },
+              { name: "Lava Bucket", type: "special" },
+              { name: "Milk Bucket", type: "special" },
+              { name: "Powder Snow Bucket", type: "special" },
+              { name: "Compass", type: "navigation" },
+              { name: "Clock", type: "navigation" },
+              { name: "Spyglass", type: "special" },
+              { name: "Brush", type: "special", version: "1.20" },
+            ],
+          },
+          // ... more categories will be added
+        },
+
+        getItemsByCategory: function (category) {
+          return this.categories[category]?.items || [];
+        },
+
+        getAllItems: function () {
+          return Object.values(this.categories).flatMap((cat) => cat.items);
+        },
+
+        isNewItem: function (item) {
+          return item.version === "1.21";
+        },
+      };
+
+      // Add checkboxes to every sub-item cell and persist checked state in localStorage
+      (function () {
+        const STORAGE_KEY = "minecraft_item_checks_v2";
+        const QUANTITIES_KEY = "minecraft_item_quantities_v1";
+
+        // Minecraft items database
+        const MINECRAFT_DB = {
+          versions: {
+            1.21: [
+              "Mace",
+              "Breeze Rod",
+              "Wind Charge",
+              "Trial Key",
+              "Heavy Core",
+              "Vault",
+              "Trial Spawner",
+              "Pale Oak",
+            ],
+            "1.20": [
+              "Cherry Wood",
+              "Bamboo Wood",
+              "Sniffer Egg",
+              "Brush",
+              "Suspicious Sand",
+              "Pottery Sherds",
+            ],
+            1.19: [
+              "Mangrove Wood",
+              "Mud",
+              "Echo Shard",
+              "Recovery Compass",
+              "Music Disc 5",
+              "Goat Horn",
+            ],
+            1.18: [
+              "Deepslate",
+              "Copper",
+              "Amethyst",
+              "Tuff",
+              "Calcite",
+              "Dripstone",
+            ],
+          },
+          categories: {
+            combat: {
+              weapons: [
+                "Wooden Sword",
+                "Stone Sword",
+                "Iron Sword",
+                "Diamond Sword",
+                "Netherite Sword",
+                "Bow",
+                "Crossbow",
+                "Trident",
+                "Mace",
+              ],
+              armor: {
+                sets: ["Leather", "Chainmail", "Iron", "Diamond", "Netherite"],
+                pieces: ["Helmet", "Chestplate", "Leggings", "Boots"],
+              },
+              projectiles: [
+                "Arrow",
+                "Spectral Arrow",
+                "Tipped Arrow",
+                "Wind Charge",
+              ],
+              shields: ["Shield"],
+            },
+            tools: {
+              basic: {
+                types: ["Pickaxe", "Axe", "Shovel", "Hoe"],
+                materials: ["Wooden", "Stone", "Iron", "Diamond", "Netherite"],
+              },
+              special: [
+                "Fishing Rod",
+                "Flint and Steel",
+                "Shears",
+                "Brush",
+                "Spyglass",
+                "Lead",
+                "Name Tag",
+              ],
+              buckets: [
+                "Bucket",
+                "Water Bucket",
+                "Lava Bucket",
+                "Milk Bucket",
+                "Powder Snow Bucket",
+              ],
+              navigation: [
+                "Compass",
+                "Recovery Compass",
+                "Clock",
+                "Map",
+                "Empty Map",
+              ],
+            },
+            blocks: {
+              natural: [
+                "Stone",
+                "Granite",
+                "Diorite",
+                "Andesite",
+                "Deepslate",
+                "Tuff",
+                "Calcite",
+                "Dirt",
+                "Grass Block",
+                "Mycelium",
+                "Podzol",
+                "Mud",
+                "Clay",
+                "Sand",
+                "Red Sand",
+                "Gravel",
+                "Snow Block",
+              ],
+              manufactured: [
+                "Glass",
+                "Bricks",
+                "Stone Bricks",
+                "Smooth Stone",
+                "Polished Granite",
+                "Polished Diorite",
+                "Polished Andesite",
+                "Polished Deepslate",
+              ],
+            },
+            redstone: {
+              basic: [
+                "Redstone Dust",
+                "Redstone Torch",
+                "Repeater",
+                "Comparator",
+                "Redstone Block",
+                "Target Block",
+              ],
+              mechanical: [
+                "Piston",
+                "Sticky Piston",
+                "Dispenser",
+                "Dropper",
+                "Hopper",
+                "Observer",
+                "Daylight Detector",
+              ],
+              pressure: [
+                "Stone Pressure Plate",
+                "Wooden Pressure Plate",
+                "Light Weighted Pressure Plate",
+                "Heavy Weighted Pressure Plate",
+                "Stone Button",
+                "Wooden Button",
+              ],
+            },
+          },
+        };
+
+        // Helper function to get all items from a category
+        function getAllItemsInCategory(category) {
+          if (Array.isArray(category)) return category;
+          if (typeof category !== "object") return [];
+
+          return Object.values(category).reduce((items, subCategory) => {
+            if (Array.isArray(subCategory)) {
+              return items.concat(subCategory);
+            } else if (typeof subCategory === "object") {
+              return items.concat(getAllItemsInCategory(subCategory));
+            }
+            return items;
+          }, []);
+        }
+
+        // Generate combinations for armor sets and pieces
+        function generateArmorCombinations() {
+          const { sets, pieces } = MINECRAFT_DB.categories.combat.armor;
+          return sets.reduce((combinations, set) => {
+            return combinations.concat(
+              pieces.map((piece) => `${set} ${piece}`)
+            );
+          }, []);
+        }
+
+        // Generate tool combinations
+        function generateToolCombinations() {
+          const { types, materials } = MINECRAFT_DB.categories.tools.basic;
+          return materials.reduce((combinations, material) => {
+            return combinations.concat(
+              types.map((type) => `${material} ${type}`)
+            );
+          }, []);
+        }
+        // current checklist version (update this when you update the sheet)
+        const CHECKLIST_VERSION = "1.21.120";
+        // display as major.minor+ on badges (e.g. "1.21+")
+        function formatBadgeVersion(v) {
+          try {
+            const parts = String(v).split(".");
+            return parts.slice(0, 2).join(".") + "+";
+          } catch (e) {
+            return v;
+          }
+        }
+        const DISPLAY_VERSION = formatBadgeVersion(CHECKLIST_VERSION);
+        // list of sub-item name fragments that were added in 1.21+ and should
+        // receive the NEW badge automatically. Case-insensitive substring match.
+        const NEW_ITEMS_1_21 = [
+          "mace",
+          "breeze rod",
+          "wind charge",
+          "resin clump",
+          "resin bricks",
+          "creaking heart",
+          "pale oak",
+          "tuff",
+          // note: removed generic "copper" match because it matched
+          // "Copper Ingots"/"Copper Blocks" and caused persistent
+          // auto-checking even after reset. Keep new-item matching
+          // more specific or rely on explicit .new badges in HTML.
+        ];
+
+        // Load saved set (object for quick lookup)
+        function loadSaved() {
+          try {
+            const raw = localStorage.getItem(STORAGE_KEY);
+            if (!raw) return {};
+            return JSON.parse(raw) || {};
+          } catch (e) {
+            console.error("Failed to load saved checklist", e);
+            return {};
+          }
+        }
+
+        function saveSaved(obj) {
+          try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
+          } catch (e) {
+            console.error("Failed to save checklist", e);
+          }
+        }
+
+        const saved = loadSaved();
+
+        // Update the visual state for a category: add/remove .category-complete
+        function updateCategoryState(category) {
+          if (!category) return;
+          const rows = Array.from(
+            document.querySelectorAll("tbody tr." + CSS.escape(category))
+          );
+          if (rows.length === 0) return;
+          const boxes = Array.from(
+            document.querySelectorAll(
+              "tbody tr." + CSS.escape(category) + " td.sub .item-checkbox"
+            )
+          );
+          if (boxes.length === 0) return;
+          const allChecked = boxes.every(function (b) {
+            return b.checked;
+          });
+          rows.forEach(function (r) {
+            if (allChecked) r.classList.add("category-complete");
+            else r.classList.remove("category-complete");
+          });
+        }
+
+        const cells = Array.from(document.querySelectorAll("td.sub"));
+        cells.forEach(function (td, idx) {
+          // create a stable key for the item: use index + trimmed text
+          const text = td.textContent ? td.textContent.trim() : "item-" + idx;
+          const key =
+            "sub-" + idx + "|" + text.replace(/\s+/g, " ").slice(0, 60);
+
+          // preserve existing html
+          const html = td.innerHTML;
+          td.innerHTML = "";
+
+          const checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.className = "item-checkbox";
+          checkbox.dataset.key = key;
+
+          const span = document.createElement("span");
+          span.className = "item-text";
+          span.innerHTML = html;
+
+          // If this subcell already contained an explicit .new badge in the
+          // original HTML, set its data-new to the display version so the CSS
+          // shows e.g. "NEW 1.21+". Otherwise, if the sub text matches an
+          // item added in 1.21+, inject a .new badge and auto-check the item.
+          (function handleNewBadges() {
+            const existingNew = span.querySelector(".new");
+            if (existingNew) {
+              existingNew.setAttribute("data-new", DISPLAY_VERSION);
+            } else {
+              // check if the text matches any known new-item fragments
+              const lower = text.toLowerCase();
+              const matched = NEW_ITEMS_1_21.some(function (frag) {
+                return lower.indexOf(frag) !== -1;
+              });
+              if (matched) {
+                const badge = document.createElement("span");
+                badge.className = "new";
+                badge.setAttribute("data-new", DISPLAY_VERSION);
+                // append the badge after the existing content
+                span.appendChild(badge);
+                // auto-check new items by default and mark further cell
+                checkbox.checked = true;
+                span.classList.add("checked");
+                td.classList.add("sub-checked");
+                saved[key] = true;
+              }
+            }
+          })();
+
+          // restore checked state
+          if (saved[key]) {
+            checkbox.checked = true;
+            span.classList.add("checked");
+            // mark the sub cell so the adjacent 'further' cell shows as completed
+            td.classList.add("sub-checked");
+          }
+
+          // toggle handler
+          checkbox.addEventListener("change", function (e) {
+            const k = checkbox.dataset.key;
+            if (checkbox.checked) {
+              saved[k] = true;
+              span.classList.add("checked");
+              td.classList.add("sub-checked");
+            } else {
+              delete saved[k];
+              span.classList.remove("checked");
+              td.classList.remove("sub-checked");
+            }
+            saveSaved(saved);
+            // update the category this checkbox belongs to
+            (function () {
+              const tr = td.closest("tr");
+              const category = Array.from(tr.classList).find(Boolean);
+              if (category) updateCategoryState(category);
+            })();
+            // update stats in real-time whenever a checkbox changes
+            try {
+              updateStats();
+            } catch (e) {
+              console.error("Failed to update stats after checkbox change", e);
+            }
+          });
+
+          // allow clicking the text to toggle checkbox
+          span.addEventListener("click", function () {
+            checkbox.checked = !checkbox.checked;
+            checkbox.dispatchEvent(new Event("change"));
+          });
+
+          td.appendChild(checkbox);
+          td.appendChild(span);
+
+          // after adding checkbox and span, update category completion state
+          function getCategoryOfRow(r) {
+            // choose the first class on the row as the category name
+            const cls = Array.from(r.classList).find(Boolean);
+            return cls || null;
+          }
+        });
+
+        // persist any auto-checked items we set while injecting badges
+        saveSaved(saved);
+
+        // initial pass: set category-complete where appropriate (based on saved state)
+        (function initialCategoryPass() {
+          const allRows = Array.from(document.querySelectorAll("tbody tr"));
+          const categories = new Set();
+          allRows.forEach(function (r) {
+            const c = Array.from(r.classList).find(Boolean);
+            if (c) categories.add(c);
+          });
+          categories.forEach(function (category) {
+            updateCategoryState(category);
+          });
+        })();
+
+        // Optional: expose a clear function on window for debugging
+        // Load saved quantities
+        function loadQuantities() {
+          try {
+            const raw = localStorage.getItem(QUANTITIES_KEY);
+            return raw ? JSON.parse(raw) : {};
+          } catch (e) {
+            console.error("Failed to load quantities", e);
+            return {};
+          }
+        }
+
+        function saveQuantities(quantities) {
+          try {
+            localStorage.setItem(QUANTITIES_KEY, JSON.stringify(quantities));
+          } catch (e) {
+            console.error("Failed to save quantities", e);
+          }
+        }
+
+        const quantities = loadQuantities();
+
+        // Update statistics display
+        function updateStats() {
+          const totalItems = cells.length;
+          const itemsCollected = Object.keys(saved).length;
+          const completionPercent = Math.round(
+            (itemsCollected / totalItems) * 100
+          );
+
+          const categories = new Set();
+          const completedCategories = new Set();
+
+          cells.forEach((td) => {
+            const tr = td.closest("tr");
+            const category = Array.from(tr.classList).find(Boolean);
+            if (category) {
+              categories.add(category);
+              if (tr.classList.contains("category-complete")) {
+                completedCategories.add(category);
+              }
+            }
+          });
+
+          document.getElementById("totalItems").textContent = totalItems;
+          document.getElementById("itemsCollected").textContent =
+            itemsCollected;
+          document.getElementById("completion").textContent =
+            completionPercent + "%";
+          document.getElementById("completionBar").style.width =
+            completionPercent + "%";
+          document.getElementById("categoriesComplete").textContent =
+            completedCategories.size + "/" + categories.size;
+        }
+
+        // Populate category filter
+        function populateFilters() {
+          const categories = new Set();
+          cells.forEach((td) => {
+            const tr = td.closest("tr");
+            const category = Array.from(tr.classList).find(Boolean);
+            if (category) categories.add(category);
+          });
+
+          const select = document.getElementById("filterCategory");
+          Array.from(categories)
+            .sort()
+            .forEach((category) => {
+              const option = document.createElement("option");
+              option.value = category;
+              option.textContent =
+                category.charAt(0).toUpperCase() + category.slice(1);
+              select.appendChild(option);
+            });
+        }
+
+        // Search and filter functionality
+        function applyFilters() {
+          const searchTerm = document
+            .getElementById("searchInput")
+            .value.toLowerCase();
+          const category = document.getElementById("filterCategory").value;
+
+          const rows = Array.from(document.querySelectorAll("tbody tr"));
+
+          rows.forEach((row) => {
+            const shouldShow =
+              (!category || row.classList.contains(category)) &&
+              (!searchTerm ||
+                row.textContent.toLowerCase().includes(searchTerm));
+            row.style.display = shouldShow ? "" : "none";
+          });
+        }
+
+        // Export/Import functionality
+        window.exportProgress = function () {
+          const data = {
+            checks: saved,
+            quantities: quantities,
+          };
+          const blob = new Blob([JSON.stringify(data)], {
+            type: "application/json",
+          });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "minecraft-checklist-progress.json";
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+        };
+
+        window.importProgress = function () {
+          const input = document.createElement("input");
+          input.type = "file";
+          input.accept = ".json";
+          input.onchange = function (e) {
+            const file = e.target.files[0];
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              try {
+                const data = JSON.parse(e.target.result);
+                Object.assign(saved, data.checks);
+                Object.assign(quantities, data.quantities);
+                saveSaved(saved);
+                saveQuantities(quantities);
+                location.reload();
+              } catch (err) {
+                alert("Failed to import progress file");
+              }
+            };
+            reader.readAsText(file);
+          };
+          input.click();
+        };
+
+        // Toggle all items in current category
+        window.toggleAllInCategory = function () {
+          const category = document.getElementById("filterCategory").value;
+          if (!category) return;
+
+          const boxes = Array.from(
+            document.querySelectorAll(
+              "tbody tr." + CSS.escape(category) + " .item-checkbox"
+            )
+          );
+
+          const allChecked = boxes.every((b) => b.checked);
+          boxes.forEach((box) => {
+            box.checked = !allChecked;
+            box.dispatchEvent(new Event("change"));
+          });
+        };
+
+        // Event listeners
+        document
+          .getElementById("searchInput")
+          .addEventListener("input", applyFilters);
+        document
+          .getElementById("filterCategory")
+          .addEventListener("change", applyFilters);
+
+        // Initialize filters and stats
+        populateFilters();
+        updateStats();
+
+        // Reset function: set our checklist keys back to empty objects and reload.
+        // This preserves other unrelated localStorage keys while returning the
+        // checklist to a clean state (new-item auto-checks will reapply on load).
+        window.resetMinecraftChecklist = function () {
+          try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify({}));
+            localStorage.setItem(QUANTITIES_KEY, JSON.stringify({}));
+          } catch (e) {
+            console.error("Failed to reset checklist", e);
+          }
+          location.reload();
+        };
+
+        // Clear function (keeps old behavior for debugging)
+        window.__clearMinecraftChecklist = function () {
+          localStorage.removeItem(STORAGE_KEY);
+          localStorage.removeItem(QUANTITIES_KEY);
+          location.reload();
+        };
+      })();
+    </script>
   </body>
 </html>
